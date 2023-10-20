@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from .models import *
 from django.db.models import Count
@@ -26,7 +26,9 @@ def dashboard(request):
 
 
 def signup(request):
-    return render(request, 'signup.html')
+    return render(request, 'signup.html', {
+        'form': UserCreationForm()
+    })
 
 
 def iniciar_sesion(request):
