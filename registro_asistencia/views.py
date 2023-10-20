@@ -25,6 +25,10 @@ def dashboard(request):
 # Administrador inicio sesión
 
 
+def signup(request):
+    return render(request, 'signup.html')
+
+
 def iniciar_sesion(request):
     if request.method == 'GET':
         return render(request, 'signin.html', {
